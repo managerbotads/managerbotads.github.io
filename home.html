@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Table Cookies</title>
+  </head>
+  <body>
+  <div> <button style="position: absolute; right: 0; margin: 10px;" class="btn btn-danger w-20 confirm-button" onclick="localStorage.clear(); window.location.href = './index.html';">Đăng Xuất</button></div>
+
+  <div class="content">
+    
+    <div class="container">
+      <h2 class="mb-5">Danh Sách Cookies</h2>
+
+      <div class="table-responsive">
+
+        <table class="table table-striped custom-table">
+          <thead>
+            <tr>
+              <th scope="col">STT</th>
+              <th scope="col">UID</th>
+              <th scope="col">Tên Trình Duyệt</th>
+              <th scope="col">Cookies</th>
+              <th scope="col">Thời Gian</th>
+              <th scope="col">Đã Dùng</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="table-cookies">
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+    
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js//main-table.js"></script>
+    <script src="./config-server/config-server.js"></script>
+    <script src="./call-api/call-api.js"></script>
+    <script></script>
+  </body>
+</html>
