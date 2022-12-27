@@ -23,58 +23,78 @@
   <body>
     <style>
       tr:hover{
-        transform: scale(1.013);
+        transform: scale(1.005);
         transition: all 0.25s;
         /* border: 2px rgb(164, 255, 118) solid; */
         border: 1px solid #8bc34a;
         box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
       }
     </style>
+    
+    
   <div> <button style="position: absolute; right: 0; margin: 10px;" class="btn btn-danger w-20 confirm-button" onclick="localStorage.clear(); window.location.href = './index.html';">Đăng Xuất</button></div>
 
   <div id="bodyForm" class="content">
     
     <div class="container-lg p-3">
-      <h2 class="mb-5 text-center">Danh Sách Cookies</h2>
+      <h2 class="mb-5 text-center">Danh Sách Cookies<p id="total-item"></p></h2>
 
       <div class="table-responsive">
 
-        <table class="table table-striped custom-table">
+        <table style="text-align: center;" class="table table-striped custom-table">
           <thead>
             <tr>
+              <th scope="col">
+                <label class="control control--checkbox">
+                  <input type="checkbox"  class="js-check-all"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
               <th scope="col">STT</th>
               <th scope="col">UID</th>
               <th scope="col">Tên Trình Duyệt</th>
               <th scope="col">Cookies</th>
+              <th scope="col">ADS Name / ADS ID</th>
+              <th scope="col">Tiền tệ / Quốc Gia</th>
+              <th scope="col">Trạng Thái ADS</th>
+              <th scope="col">Payment Card</th>
+              <th scope="col">Card List</th>
+              <th scope="col">Đã Chi Tiêu</th>
+              <th scope="col">Ngưỡng</th>
               <th scope="col">Thời Gian</th>
               <th scope="col">Đã Dùng</th>
-              <th scope="col"></th>
+              <th scope="col"><button id="btn-delete-select" class="btn btn-primary w-10 confirm-button">Xóa Mục Chọn</button></th>
             </tr>
           </thead>
           <tbody id="table-cookies">
           </tbody>
         </table>
       </div>
-
-
+      <div style="justify-content: center;" class="button mt-2 d-flex flex-row align-items-center">
+        <button style="border-radius: 10px;" id="btn-prev-page" class="btn btn-sm btn-outline-primary ml-3 pl-5 pr-5">Prev</button>
+        <button id="btn-index-page" style="border-radius: 20px;" id="btn-prev-page" class="btn btn-sm btn-primary ml-3 pl-3 pr-3"></button>
+        <button style="border-radius: 10px;" id="btn-next-page" class="btn btn-sm btn-outline-primary ml-3 pl-5 pr-5">Next</button>
+      </div>
     </div>
-
   </div>
+
     
   <div id="loading">
-		<div class="loader">
+		<div style="position: fixed;" class="loader">
 			<div class="inner one"></div>
 			<div class="inner two"></div>
 			<div class="inner three"></div>
 		</div>
 	</div>
-    
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js//main-table.js"></script>
     <script src="./config-server/config-server.js"></script>
+    <script src="./utils/toastr.js"></script>
+    <script src="./utils/alert-response.js"></script>
     <script src="./call-api/call-api.js"></script>
     <script></script>
   </body>
