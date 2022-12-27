@@ -21,12 +21,18 @@
     <title>Table Cookies</title>
   </head>
   <body>
+    <style>
+      tr:hover{
+        transform: scale(1.013);
+        transition: all 0.25s;
+      }
+    </style>
   <div> <button style="position: absolute; right: 0; margin: 10px;" class="btn btn-danger w-20 confirm-button" onclick="localStorage.clear(); window.location.href = './index.html';">Đăng Xuất</button></div>
 
   <div id="bodyForm" class="content">
     
-    <div class="container">
-      <h2 class="mb-5">Danh Sách Cookies</h2>
+    <div class="container-lg p-3">
+      <h2 class="mb-5 text-center">Danh Sách Cookies</h2>
 
       <div class="table-responsive">
 
