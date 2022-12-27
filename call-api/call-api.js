@@ -1,3 +1,9 @@
+var loading = document.getElementById("loading").style;
+var bodyForm = document.getElementById("bodyForm").style;
+// loading.display="none";
+bodyForm.opacity=0.3;
+loading.display="block";
+
 function getJwtTokenFromLocalStorage(){
     var jwtToken = localStorage.getItem("jwtToken");
     return jwtToken != null ? jwtToken : null;
@@ -61,6 +67,8 @@ function setListCookies(res){
 
         }
     }
+    loading.display="none";
+    bodyForm.opacity=1;
 }
 function mappingBtn(i){
     document.getElementById(`btn-delete${i}`).onclick =function(){

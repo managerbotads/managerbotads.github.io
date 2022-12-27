@@ -15,13 +15,15 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./utils/toastr.css">
+    <link rel="stylesheet" href="./utils/loading.css">
 
     <title>Table Cookies</title>
   </head>
   <body>
   <div> <button style="position: absolute; right: 0; margin: 10px;" class="btn btn-danger w-20 confirm-button" onclick="localStorage.clear(); window.location.href = './index.html';">Đăng Xuất</button></div>
 
-  <div class="content">
+  <div id="bodyForm" class="content">
     
     <div class="container">
       <h2 class="mb-5">Danh Sách Cookies</h2>
@@ -50,6 +52,13 @@
 
   </div>
     
+  <div id="loading">
+		<div class="loader">
+			<div class="inner one"></div>
+			<div class="inner two"></div>
+			<div class="inner three"></div>
+		</div>
+	</div>
     
 
     <script src="js/jquery-3.3.1.min.js"></script>
