@@ -33,7 +33,7 @@ function setListCookies(res){
             <td>${count++}</td>
             <td class="pl-0">
             <div class="d-flex align-items-center">
-                <a href="#" class="name">${element['uid']}</a>
+                <a href="https://facebook.com/${element['uid']}" class="name">${element['uid']}</a>
             </div>
             </td>
             <td>${element['browser']}</td>
