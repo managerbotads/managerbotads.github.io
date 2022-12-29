@@ -60,18 +60,11 @@ function setListCookies(res){
             if(infoAds!=null){
                 htmlSegment+= `<td>${infoAds['adsName']}<br>(${infoAds['adsId']})</td>
                 <td>${infoAds['currency']} / ${infoAds['country']}</td>
-                <td>${infoAds['accountStatus']}</td>
-                <td>${infoAds['paymentCard']}</td>`;
-                var cardList = infoAds['cardList'];
-                var cards = "";
-                if(cardList.length>0){
-                    cardList.forEach(card=>{
-                        cards+=`[${card['code']}/${card['type']}]\n`;
-                    });
-                }
-                htmlSegment+=`<td>${cards}</td>
-                            <td>${infoAds['spentCurrency']}</td>
-                            <td>${infoAds['thresholdCurrency']}</td>`;
+                <td>${infoAds['accountStatus']==1 ? 'Hoạt động' : 'Vô hiệu hóa'}</td>
+                <td>${infoAds['spendingLimit']} ${infoAds['currency']}</td>
+                <td>${infoAds['balance']}</td>
+                <td>${infoAds['thresholdAmount']} ${infoAds['currency']}</td>
+                <td>${infoAds['totalSpending']} ${infoAds['currency']}</td>`;
             }
            else{
                 htmlSegment+=`<td>null</td>
@@ -229,8 +222,8 @@ async function getListCookie(){
         }
       } catch(err) {
         console.log(err)
-           localStorage.clear();
-           window.location.href = '../index.html';
+        //    localStorage.clear();
+        //    window.location.href = '../index.html';
       }
 }
 async function callGetUserInfo() {
@@ -248,8 +241,9 @@ async function callGetUserInfo() {
             window.location.href = '../index.html';
          }
        } catch(err) {
-            localStorage.clear();
-            window.location.href = '../index.html';
+            console.log(err)
+            // localStorage.clear();
+            // window.location.href = '../index.html';
        }
 }
 
@@ -271,8 +265,8 @@ function eventNextPage(){
                 }
               } catch(err) {
                 console.log(err)
-                   localStorage.clear();
-                   window.location.href = '../index.html';
+                //    localStorage.clear();
+                //    window.location.href = '../index.html';
               }
         }
     }
