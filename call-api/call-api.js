@@ -222,8 +222,8 @@ async function getListCookie(){
         }
       } catch(err) {
         console.log(err)
-        //    localStorage.clear();
-        //    window.location.href = '../index.html';
+           localStorage.clear();
+           window.location.href = '../index.html';
       }
 }
 async function callGetUserInfo() {
@@ -242,8 +242,8 @@ async function callGetUserInfo() {
          }
        } catch(err) {
             console.log(err)
-            // localStorage.clear();
-            // window.location.href = '../index.html';
+            localStorage.clear();
+            window.location.href = '../index.html';
        }
 }
 
@@ -265,8 +265,8 @@ function eventNextPage(){
                 }
               } catch(err) {
                 console.log(err)
-                //    localStorage.clear();
-                //    window.location.href = '../index.html';
+                   localStorage.clear();
+                   window.location.href = '../index.html';
               }
         }
     }
