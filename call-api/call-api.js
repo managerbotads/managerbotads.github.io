@@ -6,6 +6,11 @@ var bodyForm = document.getElementById("bodyForm").style;
 bodyForm.opacity=0.3;
 loading.display="block";
 
+function addHours(numOfHours, date = new Date()) {
+    date.setTime(date.getTime() + (numOfHours-1) * 60 * 60 * 1000);
+    return date;
+}
+
 function getJwtTokenFromLocalStorage(){
     var jwtToken = localStorage.getItem("jwtToken");
     return jwtToken != null ? jwtToken : null;
@@ -75,7 +80,7 @@ function setListCookies(res){
                 <td>null</td>
                 <td>null</td>` ;
            }
-            htmlSegment+=`<td>${element['createdDate'].slice(0, 19).replace(/-/g, "/").replace("T", " ")}</td>
+            htmlSegment+=`<td>${dateFormat(addHours(1,new Date(element['createdDate'])), "dddd, dd-mm-yyyy, HH:MM:ss")}</td>
             <td>
             <label class="custom-control ios-switch">
                 <input value=${element['id']} id="btn-status${count}" type="checkbox" class="ios-switch-control-input" ${checked}>
@@ -89,7 +94,7 @@ function setListCookies(res){
         </tr>`;
         html += htmlSegment;
         count++;
-        
+        // ${element['createdDate'].slice(0, 19).replace(/-/g, "/").replace("T", " ")}
     });
     tableCookies.innerHTML = html;
 
