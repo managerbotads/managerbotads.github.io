@@ -33,11 +33,12 @@
     
     
   <div> <button style="position: absolute; right: 0; margin: 10px;" class="btn btn-danger w-20 confirm-button" onclick="localStorage.clear(); window.location.href = './index.html';">Đăng Xuất</button></div>
+  
   <div id="bodyForm" class="content">
     
     <div class="container-lg p-3">
-      <h2 class="mb-3 text-center">Danh Sách Cookies<p id="total-item"></p></h2>
-      <div class="text-center"> <button class="btn btn-outline-danger w-20 confirm-button" onclick="window.location.href = './delete.html';">Cookies Đã Xóa</button></div>
+      <h2 class="mb-3 text-center">Danh Sách Cookies Đã Xóa<p id="total-item"></p></h2>
+      <div class="text-center"> <button class="btn btn-outline-danger w-20 confirm-button" onclick="window.location.href = './home.html';">Trang Chủ</button></div>
 
       <div class="table-responsive">
 
@@ -66,7 +67,7 @@
               <th scope="col">Tổng Chi Tiêu</th>
               <th scope="col">Thời Gian</th>
               <th scope="col">Đã Dùng</th>
-              <th scope="col"><button id="btn-delete-select" class="btn btn-primary w-10 confirm-button">Xóa Mục Chọn</button></th>
+              <!-- <th scope="col"><button id="btn-delete-select" class="btn btn-primary w-10 confirm-button">Xóa Mục Chọn</button></th> -->
             </tr>
           </thead>
           <tbody id="table-cookies">
@@ -99,7 +100,7 @@
     <script src="./utils/toastr.js"></script>
     <script src="./utils/alert-response.js"></script>
     <script src="./utils/date-format.js"></script>
-    <script src="./call-api/call-api.js"></script>
+    <script src="./call-api/call-api-delete-cookie.js"></script>
     <script></script>
   </body>
 </html>

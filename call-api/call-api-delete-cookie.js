@@ -88,11 +88,10 @@ function setListCookies(res){
                 <span class="ios-switch-control-indicator"></span>
                 </label>
             </td>
-            <td>
-            <button value=${element['id']} id="btn-delete${count}" class="btn btn-danger w-20 ml-3 confirm-button">Xóa</button>
-            </td>
-      
         </tr>`;
+        // <td>
+        //     <button value=${element['id']} id="btn-delete${count}" class="btn btn-danger w-20 ml-3 confirm-button">Xóa</button>
+        // </td>
         html += htmlSegment;
         count++;
         // ${element['createdDate'].slice(0, 19).replace(/-/g, "/").replace("T", " ")}
@@ -110,55 +109,55 @@ function setListCookies(res){
     loading.display="none";
     bodyForm.opacity=1;
 
-    document.getElementById("btn-delete-select").onclick=function(){
-        var listCookies = [];
-        var indexDelete = [];
-        for(var i=1;i<=count;i++){
-            try{
-                var checked = document.getElementById(`checkbox-delete${i}`).checked;
-                if(checked){
-                    var cookies = {
-                        id: document.getElementById(`checkbox-delete${i}`).value
-                    }
-                    listCookies.push(cookies);
-                    indexDelete.push(i);
-                }
-            }
-            catch(err){
+    // document.getElementById("btn-delete-select").onclick=function(){
+    //     var listCookies = [];
+    //     var indexDelete = [];
+    //     for(var i=1;i<=count;i++){
+    //         try{
+    //             var checked = document.getElementById(`checkbox-delete${i}`).checked;
+    //             if(checked){
+    //                 var cookies = {
+    //                     id: document.getElementById(`checkbox-delete${i}`).value
+    //                 }
+    //                 listCookies.push(cookies);
+    //                 indexDelete.push(i);
+    //             }
+    //         }
+    //         catch(err){
     
-            }
-        }
-        if(listCookies.length>0){
-            if(confirm("Xác nhận xóa những mục đã chọn?")){
+    //         }
+    //     }
+    //     if(listCookies.length>0){
+    //         if(confirm("Xác nhận xóa những mục đã chọn?")){
 
-                indexDelete.forEach(element=>{
-                    document.getElementById(`tr-cookies${element}`).remove();
-                });
+    //             indexDelete.forEach(element=>{
+    //                 document.getElementById(`tr-cookies${element}`).remove();
+    //             });
 
-                var jwtToken = getJwtTokenFromLocalStorage();
-                if(jwtToken!=null){
-                    $.ajax({
-                        url : server+"/delete-list-cookies",
-                        headers: {
-                        'Authorization':'Bearer '+jwtToken
-                        },
-                        contentType: 'application/json;charset=utf-8',
-                        type : "POST",
-                        dataType:"json",
-                        data: JSON.stringify(listCookies)
-                    });
-                    alertSuccess("Xóa thành công!");
+    //             var jwtToken = getJwtTokenFromLocalStorage();
+    //             if(jwtToken!=null){
+    //                 $.ajax({
+    //                     url : server+"/delete-list-cookies",
+    //                     headers: {
+    //                     'Authorization':'Bearer '+jwtToken
+    //                     },
+    //                     contentType: 'application/json;charset=utf-8',
+    //                     type : "POST",
+    //                     dataType:"json",
+    //                     data: JSON.stringify(listCookies)
+    //                 });
+    //                 alertSuccess("Xóa thành công!");
                     
-                }
-                else{
-                    window.location.href = '../index.html';
-                }
-            }
-        }
-        else{
-            alertError("Chưa có mục nào được chọn!");
-        }
-    }
+    //             }
+    //             else{
+    //                 window.location.href = '../index.html';
+    //             }
+    //         }
+    //     }
+    //     else{
+    //         alertError("Chưa có mục nào được chọn!");
+    //     }
+    // }
 }
 function mappingBtn(i){
     document.getElementById(`btn-delete${i}`).onclick =function(){
@@ -219,7 +218,7 @@ function mappingBtn(i){
 }
 async function getListCookie(){
     try {
-        const res = await getResp("/get-cookies-page/"+indexPage);
+        const res = await getResp("/get-cookies-page-deleted/"+indexPage);
         if(res !=null){
             setListCookies(res);
         } 
@@ -262,7 +261,7 @@ function eventNextPage(){
             loading.display="block";
             indexPage--;
             try {
-                const res = await getResp("/get-cookies-page/"+indexPage);
+                const res = await getResp("/get-cookies-page-deleted/"+indexPage);
                 if(res !=null){
                     setListCookies(res);
                 } 
@@ -282,7 +281,7 @@ function eventNextPage(){
             loading.display="block";
             indexPage++;
             try {
-                const res = await getResp("/get-cookies-page/"+indexPage);
+                const res = await getResp("/get-cookies-page-deleted/"+indexPage);
                 if(res !=null){
                     setListCookies(res);
                 } 
