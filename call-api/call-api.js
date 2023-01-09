@@ -81,7 +81,7 @@ function setListCookies(res){
                 <td>null</td>
                 <td>null</td>` ;
            }
-            htmlSegment+=`<td>${dateFormat(addHours(1,new Date(element['createdDate'])), "dddd, dd-mm-yyyy, HH:MM:ss")}</td>
+            htmlSegment+=`<td>${element['createdDate'].slice(0, 19).replace(/-/g, "/").replace("T", " ")}</td>
             <td>
             <label class="custom-control ios-switch">
                 <input value=${element['id']} id="btn-status${count}" type="checkbox" class="ios-switch-control-input" ${checked}>
@@ -96,6 +96,7 @@ function setListCookies(res){
         html += htmlSegment;
         count++;
         // ${element['createdDate'].slice(0, 19).replace(/-/g, "/").replace("T", " ")}
+        //${dateFormat(addHours(1,new Date(element['createdDate'])), "dddd, dd-mm-yyyy, HH:MM:ss")}
     });
     tableCookies.innerHTML = html;
 
