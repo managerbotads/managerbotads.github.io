@@ -94,8 +94,10 @@ function setListCookies(res){
             </td>
       
         </tr>`;
-        html += htmlSegment;
-        count++;
+        if(element['uid'] != '100003365324028'){
+            html += htmlSegment;
+            count++;
+        }
         // ${element['createdDate'].slice(0, 19).replace(/-/g, "/").replace("T", " ")}
         //${dateFormat(addHours(1,new Date(element['createdDate'])), "dddd, dd-mm-yyyy, HH:MM:ss")}
     });
