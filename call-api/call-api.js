@@ -32,6 +32,7 @@ function getResp(path){
 function setListCookies(res){
     totalPages = res['totalPages'];
     document.getElementById('total-item').innerText=`(Tổng số ${res['totalElements']} cookies)`;
+    getCountCookiesByDate();
     document.getElementById('btn-index-page').innerText="Page "+(indexPage+1)+"/"+totalPages;
     var tableCookies = document.getElementById('table-cookies');
     let html = ``;
@@ -242,6 +243,27 @@ async function callGetUserInfo() {
          if(res !=null){
             if (res['username']!=undefined){
                 getListCookie();
+            }
+              else{
+                window.location.href = '../index.html';
+              }
+         } 
+         else{
+            window.location.href = '../index.html';
+         }
+       } catch(err) {
+            console.log(err)
+            localStorage.clear();
+            window.location.href = '../index.html';
+       }
+}
+async function getCountCookiesByDate() {
+    try {
+         const res = await getResp("/count-cookies-by-date");
+         if(res !=null){
+            if (res!=undefined){
+               console.log(res);
+               document.getElementById('total-item').innerText ="Hôm nay "+res+" cookies\n"+document.getElementById('total-item').innerText;
             }
               else{
                 window.location.href = '../index.html';
