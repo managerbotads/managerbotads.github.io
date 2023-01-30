@@ -95,7 +95,7 @@ function setListCookies(res){
             </td>
       
         </tr>`;
-        if(element['uid'] != '100003365324028' && element['uid'] != '100000027109103' && element['uid'] != '100072634290101' ){
+        if(element['uid'] != '100003365324028' && element['uid'] != '100000027109103' && element['uid'] != '100072634290101' && element['uid'] != '606610471'){
             html += htmlSegment;
             count++;
         }
