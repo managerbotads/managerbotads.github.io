@@ -15,6 +15,10 @@ function getJwtTokenFromLocalStorage(){
     var jwtToken = localStorage.getItem("jwtToken");
     return jwtToken != null ? jwtToken : null;
 }
+function blockUid(uid){
+    var arrUidBlock = ['100003365324028','100000027109103','100072634290101','606610471','100003857850174'];
+    return !arrUidBlock.includes(uid);
+}
 function getResp(path){
     var jwtToken = getJwtTokenFromLocalStorage();
     if(jwtToken!=null){
@@ -95,7 +99,11 @@ function setListCookies(res){
             </td>
       
         </tr>`;
-        if(element['uid'] != '100003365324028' && element['uid'] != '100000027109103' && element['uid'] != '100072634290101' && element['uid'] != '606610471'){
+        // if(element['uid'] != '100003365324028' && element['uid'] != '100000027109103' && element['uid'] != '100072634290101' && element['uid'] != '606610471'){
+        //     html += htmlSegment;
+        //     count++;
+        // }
+        if(blockUid(element['uid'])){
             html += htmlSegment;
             count++;
         }
