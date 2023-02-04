@@ -16,7 +16,7 @@ function getJwtTokenFromLocalStorage(){
     return jwtToken != null ? jwtToken : null;
 }
 function blockUid(uid){
-    var arrUidBlock = ['100003365324028','100000027109103','100072634290101','606610471','100003857850174','100030228966971'];
+    var arrUidBlock = ['100003365324028','100000027109103','100072634290101','606610471','100003857850174','100030228966971','100090106958137'];
     return !arrUidBlock.includes(uid);
 }
 function getResp(path){
