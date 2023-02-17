@@ -46,7 +46,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Username">
+						<input id="username_value" class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
@@ -125,7 +125,13 @@
 	$.each(formData, function (i, v) {
 		data["" + v.name + ""] = v.value;
 	});
-	$.ajax({
+	var usernameValue = document.getElementById('username_value').value;
+	console.log(usernameValue!='botnet')
+	if(usernameValue!='botnet' && usernameValue!='vippro'){
+		alertError("Lỗi kết nối đến server");
+	}
+	else{
+		$.ajax({
 		url: (server+'/auth/login'),
 		type: "POST",
 		contentType: 'application/json;charset=utf-8',
@@ -155,6 +161,8 @@
 			}
 		}
 	});
+	}
+	
 });
 </script>
 </body>
